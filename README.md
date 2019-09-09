@@ -23,8 +23,10 @@ selenium? 여러 언어를 지원하는 웹 자동화 라이브러리 이다.
  
 '''
   https://sites.google.com/a/chromium.org/chromedriver/downloads
+  
 '''
 
+https://news.mt.co.kr/mtview.php?no=2002051314433800085
 
 
 
