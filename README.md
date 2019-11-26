@@ -16,7 +16,7 @@
  pip install selenium
 
 ```
-selenium? 여러 언어를 지원하는 웹 자동화 라이브러리 이다.
+selenium은 여러 언어를 지원하는 웹 자동화 라이브러리 이다.
 
 * chrome driver 설치
  (chrome 버전 확인 후 설치.)
@@ -26,9 +26,6 @@ selenium? 여러 언어를 지원하는 웹 자동화 라이브러리 이다.
   
 '''
 
-```
-https://news.mt.co.kr/mtview.php?no=2002051314433800085
-```
 
 
 
