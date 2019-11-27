@@ -1,0 +1,124 @@
+﻿{% load static %}
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/cover.css' %}">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<!-- Dataplanet javascript sources -->
+	<script type="text/javascript" src="http://dplive.dataplanet.co.kr//lib/3/dataplanet.js"></script>
+	<script type="text/javascript" src="http://dplive.dataplanet.co.kr/lib/3/pie.js"></script>
+	<script type="text/javascript" src="http://dplive.dataplanet.co.kr//lib/3/themes/black.js"></script>
+
+</head>
+
+<main class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+  <header class="masthead mb-auto" >
+    <div class="inner">
+      <h2 class="masthead-brand">Crawling</h2>
+      <nav class="nav nav-masthead justify-content-center" >
+		    {% csrf_token %}
+        	 	   <a class="nav-link" href="index1">악성댓글 수집</a>
+        	  	    {% csrf_token %}
+        	 	   <a class="nav-link" href="index2"; style="color:#848484; border-bottom-color:#6E6E6E;">댓글 현황</a>
+        	      	{% csrf_token %}
+        	   	 <a class="nav-link" href="index3">연관 키워드</a>
+      </nav>
+    </div>
+  </header>
+
+
+
+		<!-- Dataplanet javascript code -->
+		<script type="text/javascript">
+			Dataplanet.makeChart("chartdiv",
+				{
+					"type": "pie",
+					"angle": 12,
+					"balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+					"depth3D": 15,
+					"startDuration": 0,
+					"titleField": "category",
+					"valueField": "column-1",
+					"theme": "black",
+					"balloon": {},
+					"legend": {
+						"enabled": true,
+						"align": "center"
+					},
+					"titles": [],
+					"dataProvider": [
+						{
+							"category": "긍정",
+							"column-1": {{good}}
+						},
+						{
+							"category": "부정",
+							"column-1": {{bad}}
+						},
+
+					]
+				}
+			);
+		</script>
+	<main>
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div style="width: 1800px; height: 1200px; padding: 200px 10px 200px 20px; margin-right: auto; margin-left: auto;">
+<div style="width: 850px; height: 500px; background-color: #333; float:left;" >
+		<div id="chartdiv"></div>
+	</div>
+
+<p> {{key}}의 최근 검색량  </p>
+<div style="width: 850px; height: 500px; background-color: #333; float:right;">
+	<div id="chardiv2">
+    <canvas id="myChart"`></canvas>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<script type="text/javascript">
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['2019-01-06', '2019-01-13', '2019-01-20', '2019-01-27', '2019-02-03', '2019-02-10', '2019-02-17', '2019-02-24', '2019-03-03', '2019-03-10', '2019-03-17', '2019-03-24', '2019-03-31', '2019-04-07', '2019-04-14', '2019-04-21', '2019-04-28', '2019-05-05', '2019-05-12', '2019-05-19', '2019-05-26', '2019-06-02', '2019-06-09', '2019-06-16', '2019-06-23', '2019-06-30', '2019-07-07', '2019-07-14', '2019-07-21', '2019-07-28', '2019-08-04', '2019-08-11', '2019-08-18', '2019-08-25', '2019-09-01', '2019-09-08', '2019-09-15', '2019-09-22', '2019-09-29', '2019-10-06', '2019-10-13', '2019-10-20', '2019-10-27', '2019-11-03', '2019-11-10', '2019-11-17'],
+        datasets: [{
+            label: '시간 흐름에 따른 관심도 변화',
+            data: {{value}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        maintainAspectRatio: true, // default value. false일 경우 포함된 div의 크기에 맞춰서 그려짐.
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+</body>

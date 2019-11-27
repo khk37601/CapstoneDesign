@@ -1,0 +1,40 @@
+﻿{% load static %}
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/cover.css' %}">
+</head>
+
+<body class="text-center">
+    <div class="cover-container d-flex w-40 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+        </header>
+
+        <div class="keyword">
+            <h3 class="cover-heading"><font color=#BDBDBD size="60"><strong>Enter Keywords</strong></font></h3>
+            <br>
+            <form action="crawling" method="POST">
+                {% csrf_token %}
+                <div class="keywordIcon">
+                    <input type="text" class="form-control" placeholder="키워드" name="userKeyword" style="text-align:center;">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                        <div class="periodIcon">
+                            <div style="padding: 3px 0px 30px 0px;">
+                                <input type="text" class="form-control" placeholder="기간 ex)2019.11.16-11.17" name="userDate" style="text-align:center">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </div>
+                        </div>
+	                <input class="btn btn-lg btn-outline-light" type="submit" value="검색" ;>
+                </div>
+            </form>
+        </div>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>WebCrawling <a href="https://github.com/khk37601/capstone_design/">github</a>, by <a href="https://github.com/khk37601/capstone_design/">@캡스톤</a>.</p>
+        </div>
+      </footer>
+    </div>
+
+  </body>
+  </html>

@@ -1,0 +1,29 @@
+﻿{% load static %}
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/cover.css' %}">
+</head>
+
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-50 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h2 class="masthead-brand">Crawling</h2>
+      <nav class="nav nav-masthead justify-content-center">
+              {% csrf_token %}
+            <a class="nav-link" href="index1"; style="color:#848484; border-bottom-color:#6E6E6E;">악성댓글 수집</a>
+              {% csrf_token %}
+            <a class="nav-link" href="index2">댓글 현황</a>
+              {% csrf_token %}
+            <a class="nav-link" href="index3">연관 키워드</a>
+      </nav>
+    </div>
+  </header>
+
+	<div style="border: 3px solid #FFFFFF;  height: auto; padding:20px;">
+	<p>악성 댓글 수집이 완료 되었습니다.</p></br>
+	<p>저장 경로 : C:\Users\hallym\악성댓글수집결과</p>
+	</div>
+
+</div>
+</body>
